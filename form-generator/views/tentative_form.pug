@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='customer_name') Customer Name:
+      input#customer_name.form-control(type='text', placeholder='', name='customer_name' value=(undefined===tentative ? '' : tentative.customer_name))
+      label(for='address') Customer Address and Lot:
+      input#address.form-control(type='text', placeholder='', name='address' value=(undefined===tentative ? '' : tentative.address))
+      label(for='previous_date') Previous Date: 
+      input#previous_date.form-control(type='date', name='previous_date', value=(undefined===tentative ? '' : tentative.previous_date))
+      label(for='new_date') New Extended or Firm Date:
+      input#new_date.form-control(type='date', name='new_date', value=(undefined===tentative ? '' : tentative.new_date))
+      label(for='extension_type') What type of extension is this:
+      br
+      select
+        option First Extension to a Second Tentative Date
+        option First Extension or Second Extension to a Firm Date
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg
