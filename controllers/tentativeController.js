@@ -59,7 +59,8 @@ exports.tentative_create_post = [
                     address: req.body.address,
                     previous_date: req.body.previous_date,
                     new_date: req.body.new_date,
-                    extension_type: req.body.extension_type
+                    extension_type: req.body.extension_type,
+                    now: moment(Date.now())
                 };
             res.render('tentative_detail', tentative);
         }
