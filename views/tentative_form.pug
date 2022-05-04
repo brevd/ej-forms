@@ -15,7 +15,7 @@ block content
       input#new_date.form-control(type='date', name='new_date', value=(undefined===tentative ? '' : tentative.new_date))
       label(for='extension_type') What type of extension is this:
       br
-      select
+      select#extension_type.form-control(type='text', name='extension_type', value=(undefined===tentative ? '' : tentative.extension_type))
         option First Extension to a Second Tentative Date
         option First Extension or Second Extension to a Firm Date
     button.btn.btn-primary(type='submit') Submit

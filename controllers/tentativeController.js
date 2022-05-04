@@ -66,10 +66,10 @@ exports.tentative_create_post = [
             var tentative = {
                 customer_name: req.body.customer_name,
                 address: req.body.address,
-                previous_date: req.body.previous_date,
-                new_date: req.body.new_date,
+                previous_date: moment(req.body.previous_date).format('dddd, MMM D, YYYY'),
+                new_date: moment(req.body.new_date).format('dddd, MMM D, YYYY'),
                 extension_type: req.body.extension_type,
-                now: moment(Date.now()).toLocaleString()
+                now: moment(Date.now()).format('dddd, MMM D, YYYY')
             };
             res.render('tentative_detail', tentative);
         }
