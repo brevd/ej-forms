@@ -3,3 +3,7 @@
   padding: 0;
   list-style: none;
 }
+
+span#red_alert {
+  background-color: rgb(245, 226, 52);;
+}

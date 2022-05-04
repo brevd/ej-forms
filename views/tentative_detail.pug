@@ -1,25 +1,36 @@
 extends layout
 
 block content
-    h1 EverJonge Homes
-    p 782 West Belle River RD. Belle River, On N0R1A0 
-    p Phone: 519-727-5832
-    p Fax: 519-727-5831
-    p Email: office@everjonge.com
+    - var e_type
+    - var pe_type
+    if extension_type === 'First Extension to a Second Tentative Date'
+        - pe_type = 'First Tentative closing date'
+        - e_type = 'Second Tentative'
+    else 
+        - pe_type = 'tentative date'
+        - e_type = 'firm'
+    div
+        h1 EverJonge Homes
+        p 782 West Belle River RD. Belle River, On N0R1A0 
+        p Phone: 519-727-5832
+        p Fax: 519-727-5831
+        p Email: office@everjonge.com
     br
     br
-    p #{customer_name}
-    p #{address}
-    p #{now}
+    div
+        p #[span(id=(test ? 'red_alert' : '')) #{customer_name}]
+        p #[span(id=(test ? 'red_alert' : '')) #{address}]
+        p #[span(id=(test ? 'red_alert' : '')) #{now}]
     br
-    p Re: Tarion - #{extension_type}
-    br
-    p Dear #{customer_name},
-    br
-    p According to the requirements of our contract (Statement of Critical Dates) we are hereby giving you the 90-day notice that the {logic} of #{previous_date} may not be met.
-    p At this time, we change the tentative closing date to #{new_date}, according to the requirements of the Tarion form
-    p Please rest assured that we will complete your home as quickyl as possible. We will keep you informed as to the actual closing date as the progress on the house continues.
-    p Thank you for your attention in this matter.
-    br
-    p Sincerely,
-    p EverJonge Homes  
+    div
+        p Re: Tarion - #[span(id=(test ? 'red_alert' : '')) #{extension_type}]
+        br
+        p Dear #[span(id=(test ? 'red_alert' : '')) #{customer_name}],
+        br
+        p According to the requirements of our contract (Statement of Critical Dates) we are hereby giving you the 90-day notice that the #[span(id=(test ? 'red_alert' : '')) #{pe_type}] of #[span(id=(test ? 'red_alert' : '')) #{previous_date}] may not be met.
+        p At this time, we set the #[span(id=(test ? 'red_alert' : '')) #{e_type}] closing date to #[span(id=(test ? 'red_alert' : '')) #{new_date}], according to the requirements of the Tarion form.
+        p Please rest assured that we will complete your home as quickyl as possible. We will keep you informed as to the actual closing date as the progress on the house continues.
+        p Thank you for your attention in this matter.
+        br
+        p Sincerely,
+        p EverJonge Homes  

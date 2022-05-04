@@ -13,8 +13,8 @@ router.get('/', (req, res, next) => {
 
 /// TENTATIVE ROUTES ///
 
-//display all tentative forms
-router.get('/tentative', tentative_controller.tentative_list);
+//display example tentative form
+router.get('/tentative', tentative_controller.tentative_ex);
 //display specific tentative form
 router.get('tentative/:id', tentative_controller.tentative_detail);
 //display create form
